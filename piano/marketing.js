@@ -19,4 +19,26 @@ keys.forEach(key=>key.addEventListener('click',()=>{
   clearTimeout(tid);
   tid=setTimeout(()=>{key.classList.remove('is-playing');if(feedback)feedback.textContent=initial},900);
 }));
+
+const stickers=[...document.querySelectorAll('[data-sticker]')];
+const notes={
+ fr:['Coucou depuis Istanbul ! 👋','Bravo, maestro ! 🎹','Encore une note et tu y es ! ✨','Surprise ! Tu m’as trouvée 🧡'],
+ en:['Hello from Istanbul! 👋','You got this, maestro! 🎹','One more note! ✨','Surprise! You found me 🧡']
+};
+if(stickers.length){
+ const toast=document.createElement('div');
+ toast.className='m-sticker-message';
+ toast.setAttribute('role','status');
+ toast.setAttribute('aria-live','polite');
+ document.body.appendChild(toast);
+ let n=0,clear;
+ stickers.forEach(button=>button.addEventListener('click',()=>{
+   const lang=button.dataset.stickerLang==='fr'?'fr':'en';
+   toast.textContent=notes[lang][n++%notes[lang].length];
+   toast.classList.add('show');
+   clearTimeout(clear);
+   clear=setTimeout(()=>toast.classList.remove('show'),3000);
+ }));
+}
+
 })();
