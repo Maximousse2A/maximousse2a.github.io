@@ -38,3 +38,6 @@ body.marketing{--bg:#101116;--panel:#1c1d25;--line:#34343d;--copy:#f6f6f2;--mute
 @media(max-width:850px){.m-sticker-hero{right:10px;bottom:22px;width:108px}.m-sticker-final{width:113px;right:12px;bottom:10px}}
 @media(max-width:600px){.m-sticker-hero{width:66px;right:-2px;bottom:5px}.m-sticker-feature{width:76px;right:12px;top:50px}.m-sticker-final{width:88px;right:5px;bottom:8px}.m-sticker-message{right:12px;bottom:12px;left:12px;text-align:center}}
 @media(prefers-reduced-motion:reduce){.m-sticker,.m-sticker-message{transition:none!important}}
+
+/* Keep the feature sticker anchored within its own card. */
+.m-feature{position:relative}
